@@ -1,0 +1,21 @@
+# ignore node dependency directories
+node_modules/
+package-lock.json
+
+# ignore log files and databases
+*.log
+# *.sql
+*.sqlite
+
+#ignore .vscode
+.vscode
+
+#ignore assets
+
+#testes
+*-teste.php
+*-testes.php
+
+
+#drive-file
+desktop.ini
