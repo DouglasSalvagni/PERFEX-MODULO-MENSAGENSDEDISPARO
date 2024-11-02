@@ -19,7 +19,7 @@ if (isset($status_name)) {
         </div>
         <button type="submit" class="btn btn-primary">Salvar Mensagem</button>
         <button type="button" class="btn btn-success" onclick="sendMessage()">Enviar Mensagem</button>
-        <a href="<?php echo admin_url('leadstatusmessenger'); ?>" class="btn btn-default">Voltar para a Lista</a>
+        <a href="<?php echo admin_url('leadstatusmessenger/list_status'); ?>" class="btn btn-default">Voltar para a Lista</a>
         <?php echo form_close(); ?>
     </div>
 </div>

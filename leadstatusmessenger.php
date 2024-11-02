@@ -35,15 +35,35 @@ function lead_status_messenger_module_deactivation_hook()
 }
 
 
-hooks()->add_action('admin_init', 'my_module_init_menu_items');
 
-function my_module_init_menu_items(){
+hooks()->add_action('admin_init', 'lead_submenu_menu_items');
+
+function lead_submenu_menu_items(){
     $CI = &get_instance();
 
-    $CI->app_menu->add_sidebar_menu_item('leadstatusmessenger-menu', [
-        'name'     => 'Teste',
+    // Adiciona um submenu ao menu "Leads"
+    $CI->app_menu->add_sidebar_children_item('leads', [
+        'slug'     => 'leadstatusmessenger-submenu',
+        'name'     => 'Leads',
+        'href'     => admin_url('leads'),
+        'position' => 1,
+        'icon'     => 'fas fa-address-book',
+    ]);
+
+    $CI->app_menu->add_sidebar_children_item('leads', [
+        'slug'     => 'leadstatusmessenger-submenu',
+        'name'     => 'Automação config',
         'href'     => base_url('admin/leadstatusmessenger'),
+        'position' => 5,
+        'icon'     => 'fa fa-robot menu-icon', 
+    ]);
+
+    // Adiciona um submenu ao menu "Leads"
+    $CI->app_menu->add_sidebar_children_item('leads', [
+        'slug'     => 'leadstatusmessenger-submenu',
+        'name'     => 'Disparo em massa',
+        'href'     => admin_url('leadstatusmessenger/list_status'),
         'position' => 10,
-        'icon'     => 'fa fa-cog menu-icon', 
+        'icon'     => 'fab fa-whatsapp',
     ]);
 }
