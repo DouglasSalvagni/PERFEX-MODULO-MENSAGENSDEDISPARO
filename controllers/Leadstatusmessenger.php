@@ -17,26 +17,6 @@ class LeadStatusMessenger extends AdminController
         $this->load->model('leads_model');
     }
 
-    public function index()
-    {
-        $data['webhook_url'] = get_option(LEADSTATUSMESSENGER_MODULE_NAME . '_webhook_url');
-        $data['webhook_token'] = get_option(LEADSTATUSMESSENGER_MODULE_NAME . '_webhook_token');
-        $this->load->view('configure', $data);
-    }
-
-    public function index_save()
-    {
-        if ($this->input->post()) {
-            $webhook_url = $this->input->post('webhook_url');
-            $webhook_token = $this->input->post('webhook_token');
-            update_option(LEADSTATUSMESSENGER_MODULE_NAME . '_webhook_url', $webhook_url);
-            update_option(LEADSTATUSMESSENGER_MODULE_NAME . '_webhook_token', $webhook_token);
-            set_alert('success', 'Instruções salvas com sucesso! ');
-        }
-
-        redirect(admin_url(LEADSTATUSMESSENGER_MODULE_NAME));
-    }
-
     public function list_status()
     {
         $data['statuses'] = $this->leads_model->get_status();

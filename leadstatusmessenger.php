@@ -50,14 +50,6 @@ function lead_submenu_menu_items(){
         'icon'     => 'fas fa-address-book',
     ]);
 
-    $CI->app_menu->add_sidebar_children_item('leads', [
-        'slug'     => 'leadstatusmessenger-submenu',
-        'name'     => 'Automação config',
-        'href'     => base_url('admin/leadstatusmessenger'),
-        'position' => 5,
-        'icon'     => 'fa fa-robot menu-icon', 
-    ]);
-
     // Adiciona um submenu ao menu "Leads"
     $CI->app_menu->add_sidebar_children_item('leads', [
         'slug'     => 'leadstatusmessenger-submenu',
@@ -67,3 +59,4 @@ function lead_submenu_menu_items(){
         'icon'     => 'fab fa-whatsapp',
     ]);
 }
+
